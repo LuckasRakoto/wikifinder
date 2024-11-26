@@ -3,16 +3,14 @@
 
 name: Go
 
-on: push
+on: ["push"]
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Golangci-lint
-      uses: golangci/golangci-lint-action@v6.1.1
-            
+
     - uses: actions/checkout@v4
 
     - name: Set up Go
@@ -25,3 +23,12 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+  lint:
+    runs-on: ubuntu-latest
+      steps:
+
+        -name: Lint project
+         uses: golangci/golangci-lint-action@v6.1.1
+         run: golangci-lint run
+      
