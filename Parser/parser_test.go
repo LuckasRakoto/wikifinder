@@ -23,7 +23,7 @@ func mockHandler(w http.ResponseWriter, r *http.Request) {
 		</html>
 	`
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(html))
+	_, _ = w.Write([]byte(html))
 }
 
 func TestParseArticle(t *testing.T) {
