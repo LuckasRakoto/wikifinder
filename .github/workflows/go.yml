@@ -2,7 +2,6 @@ name: Go
 
 on: 
   push: # Triggers workflow on push
-  pull_request: # Optional, triggers workflow on pull requests
 
 jobs:
   build:
