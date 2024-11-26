@@ -21,8 +21,7 @@ jobs:
 
       - name: Test
         run: go test ./...
-
-
+        
   golangci:
     name: lint
     runs-on: ubuntu-latest
