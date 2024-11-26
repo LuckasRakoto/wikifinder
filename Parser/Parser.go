@@ -16,7 +16,7 @@ func fetch(url string) *goquery.Document {
 	logger.Printf("Fetching %s", url)
 	resp, err := http.Get(url)
 	if err != nil {
-		logger.Fatal("Encountered error when fetching data %s: %s", url, err)
+		logger.Fatalf("Encountered error when fetching data %s: %s", url, err)
 		return nil
 	}
 	defer func(Body io.ReadCloser) {
