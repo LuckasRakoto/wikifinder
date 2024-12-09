@@ -20,6 +20,9 @@ func Connect(ctx context.Context) {
 	driver, err = neo4j.NewDriverWithContext(
 		dbUri,
 		neo4j.BasicAuth(dbUser, dbPassword, ""))
+	if err != nil {
+		fmt.Println("Error creating driver")
+	}
 
 	err = driver.VerifyConnectivity(ctx)
 	if err != nil {

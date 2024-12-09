@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	Repository "gowiki/Repositories"
 	"gowiki/Services/Parser"
 
@@ -9,7 +10,10 @@ import (
 )
 
 func main() {
-	godotenv.Load()
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Couldn't load .env")
+	}
 
 	start := "/wiki/Prime_Minister_of_Lithuania"
 

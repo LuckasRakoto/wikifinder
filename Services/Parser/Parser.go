@@ -24,6 +24,7 @@ func fetch(url string) *goquery.Document {
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
+			fmt.Println("Error closing body")
 		}
 	}(resp.Body)
 
