@@ -1,9 +1,22 @@
 package main
 
-import "gowiki/Parser"
+import (
+	"context"
+	Repository "gowiki/Repositories"
+	"gowiki/Services/Parser"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	start := "https://en.wikipedia.org/wiki/Prime_Minister_of_Lithuania"
+	godotenv.Load()
 
-	Parser.ParseArticle(start)
+	start := "/wiki/Prime_Minister_of_Lithuania"
+
+	ctx := context.Background()
+
+	Repository.Connect(ctx)
+	defer Repository.Disconnect(ctx)
+
+	Parser.Start(start)
 }
